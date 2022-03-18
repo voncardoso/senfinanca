@@ -4,6 +4,7 @@ section{
     gap: 2rem; 
     max-width: 1088px;
     margin: 0 auto;
+    padding: 0px 10px 0px 10px;
 }
 
 .boxSummary{
@@ -12,7 +13,7 @@ section{
     color: var(--text-title);
     padding: 1.5rem 2rem;
     height: 136px;
-   
+    
 }
 
 strong {
@@ -46,3 +47,17 @@ strong {
     top: -5px;
 }
 
+@media(max-width: 853px){
+    section{
+        gap: 1rem;
+        padding-bottom: 10px;
+        position: relative;
+        overflow-x: auto; /* se quebrar o container coloca a barra de rolagem*/
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+    .boxSummary{
+        width: 260px;
+        padding-bottom: 5px;
+    }
+}
