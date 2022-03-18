@@ -1,0 +1,29 @@
+nav {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1rem 12rem;
+}
+div{
+    height: 40px;
+}
+button{
+    margin-left: 20px;
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+    background: var( --blue);
+    border: none;
+    transition:  filter 0.2s;
+}
+
+button:hover{
+    filter: brightness(0.9);
+}
+
+.imgNav{
+    position: relative;
+    top: 2px;
+}
