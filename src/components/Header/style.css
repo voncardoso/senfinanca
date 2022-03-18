@@ -4,7 +4,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 1rem 12rem;
+    padding: 2rem 1rem 6rem;
 }
 div{
     height: 40px;

@@ -1,0 +1,48 @@
+section{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem; 
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.boxSummary{
+    background: #FFFFFF;
+    border-radius: 20px;
+    color: var(--text-title);
+    padding: 1.5rem 2rem;
+    height: 136px;
+    box-shadow: 2px 2px 6px 2px rgba(0, 0, 0, 0.25);
+}
+
+strong {
+    display: block;
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 3rem;
+}
+
+.saidas p{
+    color: var(--red);
+}
+
+.entradas p{
+    color: var(--green);
+}
+
+.boxBlue{
+    background: var(--blue);
+    color: var(--shape);
+}
+
+.boxBlue header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.boxBlue header img{
+    position: relative;
+    top: -5px;
+}
+
