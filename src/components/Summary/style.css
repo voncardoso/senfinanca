@@ -55,6 +55,24 @@ strong {
         overflow-x: auto; /* se quebrar o container coloca a barra de rolagem*/
         -webkit-overflow-scrolling: touch;
         -ms-overflow-style: -ms-autohiding-scrollbar;
+        scrollbar-width: thin;          /* "auto" or "thin" */
+        scrollbar-color: var(--blue) var(--shape);   /* scroll thumb and track */ 
+        cursor: pointer;
+    }
+
+    section::-webkit-scrollbar{
+        height: 6px;
+        -webkit-overflow-scrolling: touch;
+    }
+    section::-webkit-scrollbar-track {
+        background: var(--shape);
+      }
+    section::-webkit-scrollbar-thumb {
+        background-color: var(--blue);    /* color of the scroll thumb */
+        border-radius: 5px;       /* roundness of the scroll thumb */
+    }
+    section:hover{
+        cursor: pointer;
     }
     .boxSummary{
         width: 260px;
