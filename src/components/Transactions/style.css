@@ -5,6 +5,7 @@
 
 table{
     width: 100%;
+    margin: 0 auto;
     border-spacing: 0 0.5rem ;
 }
 
@@ -21,7 +22,6 @@ td {
     border: 0;
     background: var(--shape);
     color: var(--text-body);
-    border-bottom: 2px rgba(0, 0, 0, 0.25);
 }
 
 td:first-child {
@@ -32,4 +32,5 @@ td:first-child {
 td:nth-last-child(1) {
     border-bottom-right-radius: 0.8rem;
     border-top-right-radius: 0.8rem;
+    
 }
