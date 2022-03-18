@@ -7,6 +7,8 @@ table{
     width: 100%;
     margin: 0 auto;
     border-spacing: 0 0.5rem ;
+   padding-right: 10px;
+   padding-left: 10px;
 }
 
 th{
@@ -18,10 +20,12 @@ th{
 }
 
 td {
+    max-width: 100%;
     padding: 1.2rem 2rem;
     border: 0;
     background: var(--shape);
     color: var(--text-body);
+    margin: 0px 5px 0px 5px;
 }
 
 td:first-child {
