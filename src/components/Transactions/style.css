@@ -38,3 +38,65 @@ td:nth-last-child(1) {
     border-top-right-radius: 0.8rem;
     
 }
+
+/* Table estilos mobile*/
+.TransactionstableMobile{
+    margin-top: 4rem;
+    display: none;
+}
+
+.TransactionstableMobile h3{
+    font-size: 1.25rem;
+    font-weight: normal;
+    margin-left: 3px;
+    margin-bottom: 10px;
+}
+
+.TransactionstableMobile div{
+    max-height: 150px;
+    height: 100%;
+    max-width: 400px;
+    width: 100%;
+    background: var(--shape);
+    padding: 1rem;
+    font-size: 0.875rem;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+.TransactionstableMobile p{
+    font-size: 1rem;
+}
+
+.TransactionstableMobile strong{
+    font-weight: normal;
+    font-size: 1.625rem;
+    line-height: 1.875rem;
+    margin-top: 10px;
+}
+.entradaMobile{
+    color: var(--green);
+}
+
+.TransactionstableMobile ul{
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-body);
+}
+
+.TransactionstableMobile ul li{
+    padding-top: 20px;
+    font-size: 1rem;
+}
+
+
+
+@media(max-width: 579px){
+    .Transactionstable{
+        display: none;
+    }
+
+    .TransactionstableMobile{
+        display: block;
+    }
+}
