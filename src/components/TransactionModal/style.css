@@ -1,0 +1,81 @@
+form{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+}
+
+form h2{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.625rem;
+}
+
+form input{
+    width: 100%;
+    font-size: 1rem;
+    height: 3rem;
+    padding: 0 1.5rem;
+    border-radius: 10px;
+    margin: 0px 0px 20px 0px;
+    border: none;
+}
+
+form button{
+    color: var(--shape);
+    height: 48px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1.25rem;
+}
+
+.Tipetransaction{
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.Tipetransaction button{
+    margin-left: 2px;
+}
+
+.transactionEntrada{
+    background: rgba(80, 164, 36, 0.5);
+}
+
+.transactionEntrada:hover{
+    filter: none;
+}
+
+.transactionSaida{
+    background: rgba(241, 79, 52, 0.5);
+}
+
+.transactionSaida:hover{
+    filter: none;
+}
+
+
+.react-modal-overlay{
+    z-index: 8;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.react-modal-content{
+        width: 100%;
+        height: 450px;
+        max-width: 576px;
+        background: var(--background);
+        padding: 3rem;
+        position: relative;
+        border-radius: 20px;
+    }
