@@ -1,5 +1,5 @@
 
-import {useState, FormEvent} from 'react';
+import {useState} from 'react';
 import { collection, addDoc} from "firebase/firestore";
 import {db} from '../../firebase/config';
 import  Modal  from "react-modal";

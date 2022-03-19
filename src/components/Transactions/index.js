@@ -1,14 +1,26 @@
 import {db} from '../../firebase/config';
 import { collection, addDoc, getDocs, updateDoc, doc} from "firebase/firestore";
-import './style.css';
 import { useEffect, useState } from 'react';
+import UpadateModal from '../../components/UpdateModal';
 import UpdateImg from '../../assets/iconUpdate.svg';
 import DeleteImg from '../../assets/IconDelete.svg';
 import { useTransactions } from '../../hooks/UseTransactions';
+import './style.css';
 
 const Transactions = () =>{
-    const {transactions, deleteUser} = useTransactions()
+    const {transactions, deleteUser, setId} = useTransactions()
+    const [isNewUpdateModalOpen, setIsNewUpdateContractOpen] = useState(false);
+
+    function handleOpenNewUpdateContractModal() {
+        setIsNewUpdateContractOpen(true);
+    }
+    
+    function handleCloseNewUpdateContractModal() {
+        setIsNewUpdateContractOpen(false);
+        window.location.reload();
+    }
     let id = '';
+    
     return(
         <>
             <section className='Transactionstable'>
@@ -29,7 +41,6 @@ const Transactions = () =>{
                             }else{
                                 cor = '#F14F34'
                             }
-                            id = transaction.id;
                             console.log(id);
                             return(
                                 <tr>
@@ -48,7 +59,8 @@ const Transactions = () =>{
                                         <button 
                                             style={{background: 'none'}}
                                             onClick={()=>{
-                                                deleteUser(transaction.id);
+                                                handleOpenNewUpdateContractModal();
+                                                setId(transaction.id);
                                             }}
                                         >
                                             <img src={UpdateImg} alt="Icone de Update" />
@@ -97,6 +109,11 @@ const Transactions = () =>{
                     )
                 })}
             </section>
+            <UpadateModal
+                isOpen={isNewUpdateModalOpen} 
+                OnRequestClose={handleCloseNewUpdateContractModal}
+                id={id}
+            />
         </>
     )
 }
