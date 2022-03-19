@@ -1,6 +1,6 @@
 
-import { useState, useEffect } from 'react';
-import { collection, addDoc, getDocs, updateDoc, doc} from "firebase/firestore";
+import {useState, FormEvent} from 'react';
+import { collection, addDoc} from "firebase/firestore";
 import {db} from '../../firebase/config';
 import  Modal  from "react-modal";
 import './style.css'
@@ -8,6 +8,7 @@ import './style.css'
 
 
 Modal.setAppElement('#root');
+
 
 const TransactionModal = ({isOpen,OnRequestClose}) =>{
     const [typetransactions, setTypetransactions] = useState('');
@@ -17,27 +18,27 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
     const [valor, setValor] = useState('');
     const [categoria, setCategoria] = useState('');
     
-    const usersCollectionRef = collection(db, "transacoes");
+    const transactionsCollectionRef = collection(db, "transacoes");
 
-    function teste(){
-        console.log('aqui');
-        create ()
-    }
-    async function create (){
+
+    async function Create(event){
+        event.preventDefault();
         console.log('passou');
-        await addDoc(usersCollectionRef, {
+        await addDoc(transactionsCollectionRef, {
             titulo: titulo,
-            valor: valor,
+            valor: +valor,
             categoria: categoria,
             typetransactions: typetransactions,
+            timestemp: new Date().toLocaleDateString(),
         });
         setTitulo('');
         setValor('');
         setCategoria('');
         setTypetransactions('');
         OnRequestClose();
+        window.location.reload();
     }
-
+    
     return(
         <Modal
             isOpen={isOpen}
@@ -45,7 +46,7 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
             overlayClassName="react-modal-overlay"
             className="react-modal-content"
         >
-            <form>
+            <form onSubmit={Create}>
                 <h2>Cadastrar Finanças</h2>
                 <div className='Tipetransaction'>
                    <button 
@@ -77,6 +78,7 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                     placeholder='titulo'
                     onChange={(event)=> setTitulo(event.target.value)}
                     value={titulo}
+                    required
                 />
                 <input type="number" 
                     placeholder='valor'
@@ -88,8 +90,8 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                 value={categoria}
                 onChange={(event)=> setCategoria(event.target.value)}                
                 />
+                 <button type='submit'>Cadastrar</button>
             </form>
-            <button className='cadastrar' onClick={create}>Cadastrar</button>
         </Modal>
     )
 }

@@ -39,6 +39,10 @@ td:nth-last-child(1) {
     
 }
 
+td:nth-last-child(4) {
+    color: var( --text-title);    
+}
+
 /* Table estilos mobile*/
 .TransactionstableMobile{
     margin-top: 4rem;
@@ -62,11 +66,13 @@ td:nth-last-child(1) {
     padding: 1rem;
     font-size: 0.875rem;
     border-radius: 20px;
-    margin: 0 auto;
+    margin: 0px auto 20px auto;
+    
 }
 
 .TransactionstableMobile p{
     font-size: 1rem;
+    color: var( --text-title)
 }
 
 .TransactionstableMobile strong{
