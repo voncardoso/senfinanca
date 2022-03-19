@@ -2,20 +2,13 @@ import {db} from '../../firebase/config';
 import { collection, addDoc, getDocs, updateDoc, doc} from "firebase/firestore";
 import './style.css';
 import { useEffect, useState } from 'react';
+import UpdateImg from '../../assets/iconUpdate.svg';
+import DeleteImg from '../../assets/IconDelete.svg';
+import { useTransactions } from '../../hooks/UseTransactions';
 
 const Transactions = () =>{
-    const [transactions, setTransactions] = useState([]);
-    const transactionsCollectionRef = collection(db, "transacoes");
-
-    useEffect(()=>{
-        const getTransactions = async () => {
-            const data = await getDocs(transactionsCollectionRef);
-            setTransactions(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-          };
-          getTransactions();
-    }, []);
-    
-    console.log(transactions);
+    const {transactions, deleteUser} = useTransactions()
+    let id = '';
     return(
         <>
             <section className='Transactionstable'>
@@ -36,6 +29,8 @@ const Transactions = () =>{
                             }else{
                                 cor = '#F14F34'
                             }
+                            id = transaction.id;
+                            console.log(id);
                             return(
                                 <tr>
                                     <td key={transaction.titulo}>{transaction.titulo}</td>
@@ -49,6 +44,27 @@ const Transactions = () =>{
                                     </td>
                                     <td>{transaction.categoria}</td>
                                     <td>{transaction.timestemp}</td>
+                                    <td>
+                                        <button 
+                                            style={{background: 'none'}}
+                                            onClick={()=>{
+                                                deleteUser(transaction.id);
+                                            }}
+                                        >
+                                            <img src={UpdateImg} alt="Icone de Update" />
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button 
+                                            style={{background: 'none'}}
+                                            onClick={()=>{
+                                                deleteUser(transaction.id);
+                                            }}
+                                        >
+                                             <img src={DeleteImg} alt="Icone de delete" />
+                                        </button>
+                                    </td>
+                                    
                                 </tr>
                             )
                         })}

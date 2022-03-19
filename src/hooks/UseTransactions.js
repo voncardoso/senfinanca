@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
-import { collection, addDoc, getDocs, updateDoc} from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc} from "firebase/firestore";
 import {db} from "../firebase/config"
 
 const TransactionContext = createContext({});
@@ -16,8 +16,17 @@ export function TransactionProvaider({children}){
         getTransactions();
       }, []);
 
+      const deleteUser = async (id) => {
+        const userDoc = doc(db, "transacoes", id);
+        await deleteDoc(userDoc);
+        alert('Usuário deletado com sucesso');
+       // handleCloseNewDeleteUserModal();
+       window.location.reload();
+    };
+
+
       return (
-        <TransactionContext.Provider value={{transactions}}>
+        <TransactionContext.Provider value={{transactions, deleteUser}}>
             {children}
         </TransactionContext.Provider>
       );
@@ -26,6 +35,6 @@ export function TransactionProvaider({children}){
 
 export function useTransactions() {
     const contex = useContext(TransactionContext);
-    
+
     return contex;
   }
