@@ -1,17 +1,43 @@
-import { useState } from 'react';
+
+import { useState, useEffect } from 'react';
+import { collection, addDoc, getDocs, updateDoc, doc} from "firebase/firestore";
+import {db} from '../../firebase/config';
 import  Modal  from "react-modal";
 import './style.css'
 
 
 
+Modal.setAppElement('#root');
 
 const TransactionModal = ({isOpen,OnRequestClose}) =>{
-    const [entrada, setEntrada] = useState('');
-    const [saida, setSaida] = useState('');
+    const [typetransactions, setTypetransactions] = useState('');
+    const [entradaColor, setEntradaColor] = useState('');
+    const [saidaColor, setSaidaColor] = useState('');
     const [titulo, setTitulo] = useState('');
     const [valor, setValor] = useState('');
     const [categoria, setCategoria] = useState('');
     
+    const usersCollectionRef = collection(db, "transacoes");
+
+    function teste(){
+        console.log('aqui');
+        create ()
+    }
+    async function create (){
+        console.log('passou');
+        await addDoc(usersCollectionRef, {
+            titulo: titulo,
+            valor: valor,
+            categoria: categoria,
+            typetransactions: typetransactions,
+        });
+        setTitulo('');
+        setValor('');
+        setCategoria('');
+        setTypetransactions('');
+        OnRequestClose();
+    }
+
     return(
         <Modal
             isOpen={isOpen}
@@ -19,27 +45,29 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
             overlayClassName="react-modal-overlay"
             className="react-modal-content"
         >
-            <form action="">
+            <form>
                 <h2>Cadastrar Finanças</h2>
                 <div className='Tipetransaction'>
                    <button 
                         className='transactionEntrada'
-                        style={{background: entrada}}
+                        style={{background: entradaColor}}
                         onClick={(event)=>{
                             event.preventDefault();
-                            setEntrada('#50A424')
-                            setSaida('')
+                            setEntradaColor('#50A424')
+                            setSaidaColor('')
+                            setTypetransactions('Entrada')
                         }}
                     >
                         Entrada
                     </button>
                    <button 
                    className='transactionSaida'
-                   style={{background: saida}}
+                   style={{background: saidaColor}}
                         onClick={(event)=>{
                             event.preventDefault();
-                            setSaida('#F14F34');
-                            setEntrada('')
+                            setSaidaColor('#F14F34');
+                            setEntradaColor('')
+                            setTypetransactions('Saida')
                         }}
                    >
                        Saida
@@ -47,8 +75,8 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                 </div>
                 <input type="text" 
                     placeholder='titulo'
-                    value={titulo}
                     onChange={(event)=> setTitulo(event.target.value)}
+                    value={titulo}
                 />
                 <input type="number" 
                     placeholder='valor'
@@ -60,9 +88,8 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                 value={categoria}
                 onChange={(event)=> setCategoria(event.target.value)}                
                 />
-
-                <button>Cadastrar</button>
             </form>
+            <button className='cadastrar' onClick={create}>Cadastrar</button>
         </Modal>
     )
 }
