@@ -35,7 +35,7 @@ export function TransactionProvaider({children}){
       const tituloUpdate = {titulo};
       const valorUpdate = {valor};
       const categoriaUpdate = {categoria};
-
+      const typetransactionsUpdate = {typetransactions};
 
       if(titulo != ''){
         await updateDoc(userDoc, tituloUpdate);
@@ -47,6 +47,9 @@ export function TransactionProvaider({children}){
 
       if(categoria != ''){
         await updateDoc(userDoc, categoriaUpdate);
+      }
+      if(typetransactions != ''){
+        await updateDoc(userDoc, typetransactionsUpdate);
       }
 
 
