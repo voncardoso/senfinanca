@@ -11,6 +11,7 @@ export function TransactionProvaider({children}){
     const [titulo, setTitulo] = useState('');
     const [valor, setValor] = useState('');
     const [categoria, setCategoria] = useState('');
+    const [filter, setFilter] = useState('');
     const [id ,setId] = useState('');
 
     useEffect(() => {
@@ -59,6 +60,13 @@ export function TransactionProvaider({children}){
       //handleOpenNewUpdateUserSucessModal();
   }
 
+  const filterentradas = transactions.filter((transaction) =>{
+    console.log(transaction);
+    return transaction.typetransactions === filter
+  });
+
+  console.log('filters',filterentradas);
+
 
 
       return (
@@ -74,7 +82,10 @@ export function TransactionProvaider({children}){
           valor,
           categoria,
           id ,
-          setId
+          setId,
+          filter, 
+          setFilter,
+          filterentradas
           }}>
             {children}
         </TransactionContext.Provider>

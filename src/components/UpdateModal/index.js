@@ -1,9 +1,8 @@
 import {useContext, useState} from 'react';
-import { updateDoc, doc} from "firebase/firestore";
-import {db} from '../../firebase/config';
 import  UpdareModal  from "react-modal";
-import './style.css'
 import { useTransactions } from '../../hooks/UseTransactions';
+import './style.css'
+
 
 
 const UpdateModal = ({isOpen,OnRequestClose}) => {
@@ -23,7 +22,7 @@ const UpdateModal = ({isOpen,OnRequestClose}) => {
 
     console.log(id);
     return(
-        <UpdareModal
+    <UpdareModal
         isOpen={isOpen}
         onRequestClose={OnRequestClose}
         overlayClassName="react-modal-overlay"

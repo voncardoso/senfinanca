@@ -21,7 +21,7 @@ th{
 
 td {
     max-width: 100%;
-    padding: 1.2rem 2rem;
+    padding: 1rem 2rem;
     border: 0;
     background: var(--shape);
     color: var(--text-body);
@@ -42,6 +42,13 @@ td:nth-last-child(1) {
 td:nth-last-child(4) {
     color: var( --text-title);    
 }
+
+td:nth-last-child(1) {
+   width: 10%; 
+}
+td:nth-last-child(2) {
+    width: 10%; 
+ }
 
 /* Table estilos mobile*/
 .TransactionstableMobile{

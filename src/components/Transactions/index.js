@@ -8,7 +8,7 @@ import { useTransactions } from '../../hooks/UseTransactions';
 import './style.css';
 
 const Transactions = () =>{
-    const {transactions, deleteUser, setId} = useTransactions()
+    const {transactions, deleteUser, setId, filterentradas, filter} = useTransactions()
     const [isNewUpdateModalOpen, setIsNewUpdateContractOpen] = useState(false);
 
     function handleOpenNewUpdateContractModal() {
@@ -35,13 +35,53 @@ const Transactions = () =>{
                     </thead>
                     <tbody>
                         {transactions.map((transaction)=>{
-                            let cor = '';
-                            if(transaction.typetransactions == "Entrada"){
-                                 cor = '#50A424'
-                            }else{
-                                cor = '#F14F34'
-                            }
-                            console.log(id);
+                             let cor = '';
+                             if(transaction.typetransactions == "Entrada"){
+                                  cor = '#50A424'
+                             }else{
+                                 cor = '#F14F34'
+                             }                           
+                           if(filterentradas != ''){
+                               if(transaction.typetransactions === filter){
+                                return(
+                                    <tr>
+                                        <td key={transaction.titulo}>{transaction.titulo}</td>
+                                        <td 
+                                            style={{color: cor}}
+                                        >
+                                            {new Intl.NumberFormat('pt-BR',{
+                                                            style: 'currency',
+                                                            currency: 'BRL'
+                                            }).format(transaction.valor)}
+                                        </td>
+                                        <td>{transaction.categoria}</td>
+                                        <td>{transaction.timestemp}</td>
+                                        <td>
+                                            <button 
+                                                style={{background: 'none'}}
+                                                onClick={()=>{
+                                                    handleOpenNewUpdateContractModal();
+                                                    setId(transaction.id);
+                                                }}
+                                            >
+                                                <img src={UpdateImg} alt="Icone de Update" />
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button 
+                                                style={{background: 'none'}}
+                                                onClick={()=>{
+                                                    deleteUser(transaction.id);
+                                                }}
+                                            >
+                                                 <img src={DeleteImg} alt="Icone de delete" />
+                                            </button>
+                                        </td>
+                                        
+                                    </tr>
+                                )
+                               }
+                           }else{
                             return(
                                 <tr>
                                     <td key={transaction.titulo}>{transaction.titulo}</td>
@@ -79,6 +119,7 @@ const Transactions = () =>{
                                     
                                 </tr>
                             )
+                           }
                         })}
                     </tbody>
                 </table>
@@ -93,20 +134,39 @@ const Transactions = () =>{
                     }else{
                         cor = '#F14F34'
                     }
-                    return(
-                        <div>
-                            <p>{transaction.titulo}</p>
-                            <strong  style={{color: cor}}> 
-                                {new Intl.NumberFormat('pt-BR',{
-                                    style: 'currency',
-                                    currency: 'BRL'
-                                }).format(transaction.valor)}</strong>
-                            <ul>
-                                <li>{transaction.categoria}</li>
-                                <li>{transaction.timestemp}</li>
-                            </ul>
-                        </div>
-                    )
+                     if(filterentradas != ''){
+                        if(transaction.typetransactions === filter){
+                            return(
+                                <div>
+                                    <p>{transaction.titulo}</p>
+                                    <strong  style={{color: cor}}> 
+                                        {new Intl.NumberFormat('pt-BR',{
+                                            style: 'currency',
+                                            currency: 'BRL'
+                                        }).format(transaction.valor)}</strong>
+                                    <ul>
+                                        <li>{transaction.categoria}</li>
+                                        <li>{transaction.timestemp}</li>
+                                    </ul>
+                                </div>
+                            )
+                        }
+                     }else{
+                        return(
+                            <div>
+                                <p>{transaction.titulo}</p>
+                                <strong  style={{color: cor}}> 
+                                    {new Intl.NumberFormat('pt-BR',{
+                                        style: 'currency',
+                                        currency: 'BRL'
+                                    }).format(transaction.valor)}</strong>
+                                <ul>
+                                    <li>{transaction.categoria}</li>
+                                    <li>{transaction.timestemp}</li>
+                                </ul>
+                            </div>
+                        )
+                     }
                 })}
             </section>
             <UpadateModal
