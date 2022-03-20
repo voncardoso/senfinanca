@@ -3,6 +3,17 @@ import {useState} from 'react';
 import { collection, addDoc} from "firebase/firestore";
 import {db} from '../../firebase/config';
 import  Modal  from "react-modal";
+import todosImg from '../../assets/Todos.svg';
+import entradaImg from '../../assets/Entrada.svg';
+import saidaImg from '../../assets/Saida.svg';
+import viagemImg from '../../assets/Viagem.svg';
+import saudeImg from '../../assets/Saude.svg';
+import supermercadoImg from '../../assets/Supermercado.svg';
+import tranporteImg from '../../assets/Tranporte.svg';
+import casaImg from '../../assets/Casa.svg';
+import restauranteImg from '../../assets/Restaurante.svg'
+import streamingImg from '../../assets/Streaming.svg'
+import celularImg from '../../assets/Celular.svg'
 import './style.css'
 
 
@@ -35,9 +46,12 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
         setValor('');
         setCategoria('');
         setTypetransactions('');
+        setEntradaColor('');
         OnRequestClose();
         window.location.reload();
     }
+
+    console.log(categoria);
     
     return(
         <Modal
@@ -83,13 +97,115 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                 <input type="number" 
                     placeholder='valor'
                     value={valor}
-                    onChange={(event)=> setValor(event.target.value)}                   
+                    onChange={(event)=> setValor(event.target.value)} 
+                    required                  
                 />
-                <input type="text" 
-                placeholder='Categoria'
-                value={categoria}
-                onChange={(event)=> setCategoria(event.target.value)}                
-                />
+                <p className='categoriaP'>Categoria</p>
+                 <ul className='UlIcons'>
+
+                    <li>
+                        <button
+                            type='button'
+                            onClick={()=>{
+                                  setCategoria('Saúde');
+                            }}
+                        >
+                            <img src={ saudeImg  } alt="" />
+                        </button>
+                        Saúde
+                    </li>
+                    <li>
+                        <button
+                            type='button'
+                            onClick={()=>{
+                                  setCategoria('Supermecado');
+                            }}
+                        >
+                            <img src={ supermercadoImg } alt="" />
+                        </button>
+                        Supermecado
+                    </li>
+                    <li>
+                        <button
+                            type='button'
+                            onClick={()=>{
+                                  setCategoria('Transporte');
+                            }}
+                        >
+                            <img src={ tranporteImg } alt="" />
+                        </button>
+                        Transporte
+                    </li>
+                    <li>
+                        <button
+                            type='button'
+                            onClick={()=>{
+                                  setCategoria('Casa');
+                            }}
+                        >
+                            <img src={ casaImg } alt="" />
+                        </button>
+                        Casa
+                    </li>
+                    <li>
+                        <button
+                            type='button'
+                            onClick={()=>{
+                                  setCategoria('Vendas');
+                            }}
+                        >
+                            <p 
+                                style={{
+                                    fontSize:"1.5rem", 
+                                    color: '#FFFFFF',  
+                                }}>$</p>
+                        </button>
+                        Vendas
+                    </li>
+                    <li>
+                        <button
+                            onClick={()=>{
+                                  setCategoria('Streaming/Jogos');
+                            }}
+                        >
+                            <img src={ streamingImg } alt="" />
+                        </button>
+                        Streaming/Jogos
+                    </li>
+                    <li>
+                        <button
+                            type='button'
+                            onClick={()=>{
+                                  setCategoria('Celular');
+                            }}
+                        >
+                            <img src={ celularImg } alt="" />
+                        </button>
+                        Celular
+                    </li>
+                    <li>
+                        <button 
+                            type='button'
+                            onClick={()=>{
+                                  setCategoria('Restaurantes');
+                            }}
+                        >
+                            <img src={ restauranteImg } alt="" />
+                        </button>
+                        Restaurantes
+                    </li>
+                    <li>
+                        <button 
+                            type='button'
+                            onClick={()=>{
+                                  setCategoria('Viagem');
+                            }}
+                        >
+                            <img src={ viagemImg } alt="" />
+                        </button>
+                        Viagem
+                    </li>
+                </ul>
                  <button type='submit'>Cadastrar</button>
             </form>
         </Modal>

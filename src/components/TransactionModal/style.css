@@ -3,6 +3,8 @@ form{
     align-items: center;
     justify-items: center;
     align-content: center;
+    position: relative;
+
 }
 
 form h2{
@@ -27,6 +29,12 @@ form button{
     width: 100%;
     margin: 0 auto;
     font-size: 1.25rem;
+}
+.categoriaP{
+    position: relative;
+    text-align: justify;
+    right: 41%;
+    color:  var(--text-title);
 }
 
 .cadastrar{
@@ -64,6 +72,34 @@ form button{
 }
 
 
+
+.UlIcons{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    grid-auto-flow: row;
+    max-width: 100%;
+}
+
+.UlIcons li{
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    align-self: center;
+    margin: 10px 10px;
+}
+
+.UlIcons li button{
+    margin: 5px auto;
+    height: 40px;
+    width: 40px;
+}
+
+.UlIcons li button img{
+   position: relative;
+   top: 3px;
+}
+
+
 .react-modal-overlay{
     z-index: 8;
     background: rgba(0, 0, 0, 0.5);
@@ -80,10 +116,82 @@ form button{
 
 .react-modal-content{
         width: 100%;
-        height: 450px;
+        height: 650px;
         max-width: 576px;
         background: var(--background);
         padding: 3rem;
         position: relative;
         border-radius: 20px;
+        position: relative;
+        overflow-y: scroll;
+        z-index: 8;
+}
+
+.react-modal-content::-webkit-scrollbar{
+    width: 1px;
+    -webkit-overflow-scrolling: touch;
+}
+.react-modal-content::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0); 
+  }
+.react-modal-content::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0);    /* color of the scroll thumb */
+    border-radius: 5px;       /* roundness of the scroll thumb */
+}
+
+
+    @media(max-width: 597px) {
+        .UlIcons{
+            grid-template-columns: 1fr 1fr 1fr ;
+        }
+
+        .react-modal-content{
+            max-width: 476px;
+            width: 100%;
+        
+    }
+}
+    @media(max-width: 498px) {
+        .UlIcons{
+            grid-template-columns: 1fr 1fr 1fr ;
+        }
+
+        .react-modal-content{
+            max-width: 400px;
+            height: 620px;
+            width: 100%;
+            padding: 1.5rem 0rem;
+            position: relative;
+            overflow-y: scroll;
+    }
+    .transactionEntrada{
+        width: 55%;
+        background: rgba(80, 164, 36, 0.5);
+    }
+
+    .transactionSaida{
+        width: 55%;
+        margin-left: 1px;
+    }
+
+    .Tipetransaction{
+        width: 90%;
+    }
+
+    .categoriaP{
+        right: 35%;
+    }
+
+    form input{
+        width: 90%;
+    }
+    
+    form button{
+        color: var(--shape);
+        height: 48px;
+        width: 90%;
+        margin: 0 auto;
+        font-size: 1.25rem;
+    }
+
 }
