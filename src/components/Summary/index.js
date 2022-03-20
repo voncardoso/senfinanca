@@ -26,7 +26,7 @@ const Summary = () => {
     );
 
     return(
-        <section>
+        <section className='summary'>
             <div className='boxSummary entradas'>
                 <header>
                     <p>Entradas</p>

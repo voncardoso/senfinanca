@@ -67,7 +67,7 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
                     <li>
                         <button
                             onClick={()=>{
-                                setFilter('Saúde');
+                                setFilter('Saude');
                             }}
                         >
                             <img src={ saudeImg  } alt="" />

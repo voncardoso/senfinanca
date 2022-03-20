@@ -62,7 +62,7 @@ export function TransactionProvaider({children}){
 
   const filterentradas = transactions.filter((transaction) =>{
     console.log(transaction);
-    return transaction.typetransactions === filter
+    return transaction.typetransactions == filter || transaction.categoria == filter;
   });
 
   console.log('filters',filterentradas);

@@ -40,9 +40,11 @@ const Transactions = () =>{
                                   cor = '#50A424'
                              }else{
                                  cor = '#F14F34'
-                             }                           
+                             }                 
+                             
                            if(filterentradas != ''){
-                               if(transaction.typetransactions === filter){
+                               if(transaction.typetransactions === filter || transaction.categoria === filter){
+                                console.log('transaction.typetransactions, filter',transaction.typetransactions, filter, transaction.categoria)          
                                 return(
                                     <tr>
                                         <td key={transaction.titulo}>{transaction.titulo}</td>
