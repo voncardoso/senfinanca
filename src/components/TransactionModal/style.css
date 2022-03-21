@@ -33,7 +33,7 @@ form button{
 .categoriaP{
     position: relative;
     text-align: justify;
-    right: 41%;
+    right: 35%;
     color:  var(--text-title);
 }
 
@@ -153,8 +153,11 @@ form button{
         .react-modal-content{
             max-width: 476px;
             width: 100%;
-        
-    }
+         }
+
+         .categoriaP{
+            right: 30%;
+        }
 }
     @media(max-width: 498px) {
         .UlIcons{
@@ -184,7 +187,15 @@ form button{
     }
 
     .categoriaP{
-        right: 35%;
+        right: 25%;
+    }
+
+    .rect-modal{
+        position: relative;
+        top: -20px;
+        left: 88%;
+        z-index: 100;
+        background: none;
     }
 
     form input{

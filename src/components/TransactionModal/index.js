@@ -72,7 +72,7 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
         >
          <button 
             onClick={OnRequestClose} 
-            className="rect-modal-close"
+            className="rect-modal"
           >
             <img src={closeImg} alt="fechar modal" />
           </button>
@@ -106,7 +106,7 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                     </button>
                 </div>
                 <input type="text" 
-                    placeholder='titulo'
+                    placeholder='Descrição'
                     onChange={(event)=> setTitulo(event.target.value)}
                     value={titulo}
                     required
@@ -117,7 +117,7 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                     onChange={(event)=> setValor(event.target.value)} 
                     required                  
                 />
-                <p className='categoriaP'>Categoria</p>
+                <p className='categoriaP'>Escolha a categoria</p>
                  <ul className='UlIcons'>
 
                     <li>
