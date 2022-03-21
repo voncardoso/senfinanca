@@ -12,6 +12,7 @@ export function TransactionProvaider({children}){
     const [valor, setValor] = useState('');
     const [categoria, setCategoria] = useState('');
     const [filter, setFilter] = useState('');
+    const [filterInput, setFilterInput] = useState('');
     const [id ,setId] = useState('');
     let filter1 = '';
 
@@ -64,19 +65,15 @@ export function TransactionProvaider({children}){
   }
 
   // função de filtros 
-  //function inputeFilter(){
-    
-   // transactions.map((transaction)=>{
-      
-     // let total = transaction.categoria.indexOf(filter)
-     // console.log('filter1', total )
-     // if(total >= 0){
-      //  console.log('passou')
-        //filter1 = transaction.categoria
-     // }
-   // })
-    //console.log('filter1', filter1)
-  //}
+  function inputeFilter(){
+   
+  
+   
+  }
+
+
+
+ 
 
   //inputeFilter();
   const filterentradas = transactions.filter((transaction) =>{
@@ -105,7 +102,9 @@ export function TransactionProvaider({children}){
           filter, 
           setFilter,
           filterentradas,
-         // inputeFilter,
+          filterInput, 
+          setFilterInput,
+          inputeFilter,
           filter1
           }}>
             {children}

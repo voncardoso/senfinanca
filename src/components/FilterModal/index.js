@@ -16,8 +16,25 @@ import './style.css'
 
 
 const FilterModal = ({isOpen,OnRequestClose}) => {
-    const {setFilter, filter, inputeFilter} = useTransactions();
-    console.log('filter input', filter);
+    const {setFilter, filter, setFilterInput, filterInput, transactions} = useTransactions();
+    const idpesquisa = document.getElementById('pesquisa');
+
+    console.log('filter input',  filterInput);
+
+    function inputeFilter(){
+   
+        var termo = filterInput;
+        console.log('termo',termo)
+
+        transactions.map((element)=>{
+            console.log('element',element);
+            //if(filterInput.indexOf(termo) === -1){
+              //  return filterInput.hide()
+           // }
+        })
+        console.log(filterInput)
+        
+       }
     
     return(
         <ModalFilter
@@ -30,13 +47,14 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
         <h2>Filtros</h2>
         <input 
             className='inputFilter' 
-            type="text" 
+            type='search'
+            id='pesquisa'
             placeholder='Digite a descrição'
             onChange={(event)=> {
-                setFilter(event.target.value)
-                //inputeFilter();
+                setFilterInput(event.target.value)
+                inputeFilter();
             }}
-            value={filter}
+            value={filterInput}
         />
             <ul className='UlIconsFilter'>
                     <li>
