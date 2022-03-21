@@ -51,7 +51,7 @@ const UpdateModal = ({isOpen,OnRequestClose}) => {
     >
         <button 
             onClick={OnRequestClose} 
-            className="rect-modal-close"
+            className="rect-modal"
           >
             <img src={closeImg} alt="fechar modal" />
         </button>
