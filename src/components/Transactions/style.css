@@ -149,7 +149,7 @@ td:nth-last-child(2) {
     
 }
 
-@media(max-width: 579px){
+@media(max-width: 589px){
     .Transactionstable{
         display: none;
     }

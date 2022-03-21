@@ -19,12 +19,23 @@ Modal.setAppElement('#root');
 
 
 const TransactionModal = ({isOpen,OnRequestClose}) =>{
-    const [typetransactions, setTypetransactions] = useState('');
-    const [entradaColor, setEntradaColor] = useState('');
+    const [typetransactions, setTypetransactions] = useState('Entrada');
+    const [entradaColor, setEntradaColor] = useState('#50A424');
     const [saidaColor, setSaidaColor] = useState('');
     const [titulo, setTitulo] = useState('');
     const [valor, setValor] = useState('');
     const [categoria, setCategoria] = useState('');
+    const [cor, setCor] = useState('');
+    const [cor1, setCor1] = useState('');
+    const [cor2, setCor2] = useState('');
+    const [cor3, setCor3] = useState('');
+    const [cor4, setCor4] = useState('');
+    const [cor5, setCor5] = useState('');
+    const [cor6, setCor6] = useState('');
+    const [cor7, setCor7] = useState('');
+    const [cor8, setCor8] = useState('');
+    const [cor9, setCor9] = useState('');
+
     
     const transactionsCollectionRef = collection(db, "transacoes");
 
@@ -69,6 +80,7 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                             setSaidaColor('')
                             setTypetransactions('Entrada')
                         }}
+                        required
                     >
                         Entrada
                     </button>
@@ -102,9 +114,20 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
 
                     <li>
                         <button
+                            style={{filter: cor}}
                             type='button'
                             onClick={()=>{
-                                  setCategoria('Saúde');
+                                    setCategoria('Saúde');
+                                    setCor('brightness(0.7)');
+                                    setCor1('');
+                                    setCor2('');
+                                    setCor3('');
+                                    setCor4('');
+                                    setCor5('');
+                                    setCor6('');
+                                    setCor7('');
+                                    setCor8('');
+                                    
                             }}
                         >
                             <img src={ saudeImg  } alt="" />
@@ -113,9 +136,20 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                     </li>
                     <li>
                         <button
+                            style={{filter: cor1}}
                             type='button'
                             onClick={()=>{
-                                  setCategoria('Supermecado');
+                                    setCategoria('Supermecado');
+                                    setCor1('brightness(0.7)');
+                                    setCor('');
+                                    setCor2('');
+                                    setCor3('');
+                                    setCor4('');
+                                    setCor5('');
+                                    setCor6('');
+                                    setCor7('');
+                                    setCor8('');
+                                    
                             }}
                         >
                             <img src={ supermercadoImg } alt="" />
@@ -124,9 +158,20 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                     </li>
                     <li>
                         <button
+                            style={{filter: cor2}}
                             type='button'
                             onClick={()=>{
                                   setCategoria('Transporte');
+                                  setCor2('brightness(0.7)');
+                                  setCor('');
+                                  setCor1('');
+                                  setCor3('');
+                                  setCor4('');
+                                  setCor5('');
+                                  setCor6('');
+                                  setCor7('');
+                                  setCor8('');
+                                  
                             }}
                         >
                             <img src={ tranporteImg } alt="" />
@@ -135,9 +180,20 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                     </li>
                     <li>
                         <button
+                            style={{filter: cor3}}
                             type='button'
                             onClick={()=>{
                                   setCategoria('Casa');
+                                  setCor3('brightness(0.7)');
+                                  setCor('');
+                                  setCor1('');
+                                  setCor2('');
+                                  setCor4('');
+                                  setCor5('');
+                                  setCor6('');
+                                  setCor7('');
+                                  setCor8('');
+                                 
                             }}
                         >
                             <img src={ casaImg } alt="" />
@@ -146,9 +202,20 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                     </li>
                     <li>
                         <button
+                            style={{filter: cor4}}
                             type='button'
                             onClick={()=>{
                                   setCategoria('Vendas');
+                                  setCor4('brightness(0.7)');
+                                  setCor('');
+                                  setCor1('');
+                                  setCor2('');
+                                  setCor3('');
+                                  setCor5('');
+                                  setCor6('');
+                                  setCor7('');
+                                  setCor8('');
+                                 
                             }}
                         >
                             <p 
@@ -161,8 +228,19 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                     </li>
                     <li>
                         <button
+                            style={{filter: cor5}}
                             onClick={()=>{
                                   setCategoria('Streaming/Jogos');
+                                  setCor5('brightness(0.7)');
+                                  setCor('');
+                                  setCor1('');
+                                  setCor2('');
+                                  setCor3('');
+                                  setCor4('');
+                                  setCor6('');
+                                  setCor7('');
+                                  setCor8('');
+                                  
                             }}
                         >
                             <img src={ streamingImg } alt="" />
@@ -171,9 +249,20 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                     </li>
                     <li>
                         <button
+                            style={{filter: cor6}}
                             type='button'
                             onClick={()=>{
-                                  setCategoria('Celular');
+                                    setCategoria('Celular');
+                                    setCor6('brightness(0.7)');
+                                    setCor('');
+                                    setCor1('');
+                                    setCor2('');
+                                    setCor3('');
+                                    setCor4('');
+                                    setCor5('');
+                                    setCor7('');
+                                    setCor8('');
+                                  
                             }}
                         >
                             <img src={ celularImg } alt="" />
@@ -182,9 +271,20 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                     </li>
                     <li>
                         <button 
+                            style={{filter: cor7}}
                             type='button'
                             onClick={()=>{
                                   setCategoria('Restaurantes');
+                                  setCor7('brightness(0.7)');
+                                  setCor('');
+                                  setCor1('');
+                                  setCor2('');
+                                  setCor3('');
+                                  setCor4('');
+                                  setCor5('');
+                                  setCor6('');
+                                  setCor8('');
+                                 
                             }}
                         >
                             <img src={ restauranteImg } alt="" />
@@ -193,9 +293,20 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                     </li>
                     <li>
                         <button 
+                            style={{filter: cor8}}
                             type='button'
                             onClick={()=>{
                                   setCategoria('Viagem');
+                                  setCor8('brightness(0.7)');
+                                  setCor('');
+                                  setCor1('');
+                                  setCor2('');
+                                  setCor3('');
+                                  setCor4('');
+                                  setCor5('');
+                                  setCor6('');
+                                  setCor7('');
+
                             }}
                         >
                             <img src={ viagemImg } alt="" />
