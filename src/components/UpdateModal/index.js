@@ -21,7 +21,8 @@ const UpdateModal = ({isOpen,OnRequestClose}) => {
         id,
     } = useTransactions();
 
-    console.log(id);
+
+    console.log('titulo', id, 'titulo', titulo);
     return(
     <UpdareModal
         isOpen={isOpen}

@@ -9,7 +9,18 @@ import './style.css';
 import ConfigModal from '../ConfigModal';
 
 const Transactions = () =>{
-    const {transactions, deleteUser, setId, filterentradas, filter} = useTransactions()
+    const {
+        transactions, 
+        deleteUser, 
+        setId, 
+        filterentradas,
+        filter, 
+        setTitulo, 
+        setValor,
+        setCategoria,
+        valor,
+        titulo
+    } = useTransactions()
     const [isNewUpdateModalOpen, setIsNewUpdateOpen] = useState(false);
     const [isNewConfigModalOpen, setIsNewConfigOpen] = useState(false);
     let id = '';
@@ -75,6 +86,8 @@ const Transactions = () =>{
                                                 onClick={()=>{
                                                     handleOpenNewUpdateModal();
                                                     setId(transaction.id);
+                                                    setTitulo(transaction.titulo)
+                                                    setValor(transaction.valor)
                                                 }}
                                             >
                                                 <img src={UpdateImg} alt="Icone de Update" />
@@ -85,6 +98,7 @@ const Transactions = () =>{
                                                 style={{background: 'none'}}
                                                 onClick={()=>{
                                                     deleteUser(transaction.id);
+                                                    
                                                 }}
                                             >
                                                  <img src={DeleteImg} alt="Icone de delete" />
@@ -114,6 +128,8 @@ const Transactions = () =>{
                                             onClick={()=>{
                                                 handleOpenNewUpdateModal();
                                                 setId(transaction.id);
+                                                setTitulo(transaction.titulo)
+                                                setValor(transaction.valor)
                                             }}
                                         >
                                             <img src={UpdateImg} alt="Icone de Update" />

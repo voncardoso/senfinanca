@@ -10,7 +10,17 @@ import UpdateModal from '../UpdateModal';
 ModalConfig.setAppElement('#root');
 
 const ConfigModal = ({isOpen,OnRequestClose}) =>{
-    const { transactions, deleteUser, id, setId} = useTransactions();
+    const {  
+        deleteUser, 
+        id, 
+        setTitulo,
+        setValor,
+        titulo, 
+        valor,
+        setCategoria, 
+        categoria,
+        transactions
+    } = useTransactions();
     const [isNewUpdateModalOpen, setIsNewUpdateOpen] = useState(false);
 
     function handleOpenNewUpdateModal() {
@@ -21,6 +31,16 @@ const ConfigModal = ({isOpen,OnRequestClose}) =>{
         setIsNewUpdateOpen(false);
         window.location.reload();
     }
+
+    function teste(){
+        transactions.map((transaction)=>{
+            if(transaction.id == id){
+                setTitulo(transaction.titulo)
+                setValor(transaction.valor)
+            }
+        })
+    }
+    
     return(
         <>
         <ModalConfig
@@ -40,12 +60,19 @@ const ConfigModal = ({isOpen,OnRequestClose}) =>{
                 <li
                     onClick={()=>{
                         handleOpenNewUpdateModal();
+                        setTitulo(titulo)
+                        setValor(valor)
+                        teste()
+                        console.log('teste',titulo, valor)
                     }}
                 >
                 <button 
                     style={{background: 'none'}}
                     onClick={()=>{
                         handleOpenNewUpdateModal();
+                        setTitulo(titulo)
+                        setValor(valor)
+                        teste()
                     }}
                 >
                     <img src={UpdateImg} alt="Icone de delete" />
