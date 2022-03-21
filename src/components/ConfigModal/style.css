@@ -1,0 +1,39 @@
+.ConfigModal li{
+    display: flex;
+    align-self: center;
+    width: 100px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+.ConfigModal li button{
+    margin: 0;
+}
+
+.ConfigModal li p{
+    align-self: center;
+}
+
+.react-modal-overlay-config{
+    z-index: 8;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.react-modal-content-config{
+        width: 140px;
+        height: 120px;
+        max-width: 576px;
+        background: var(--shape);
+        padding: 1rem;
+        position: relative;
+        border-radius: 20px;
+}

@@ -6,20 +6,31 @@ import UpdateImg from '../../assets/iconUpdate.svg';
 import DeleteImg from '../../assets/IconDelete.svg';
 import { useTransactions } from '../../hooks/UseTransactions';
 import './style.css';
+import ConfigModal from '../ConfigModal';
 
 const Transactions = () =>{
-    const {transactions, deleteUser, setId, filterentradas, filter, filter1} = useTransactions()
-    const [isNewUpdateModalOpen, setIsNewUpdateContractOpen] = useState(false);
-
-    function handleOpenNewUpdateContractModal() {
-        setIsNewUpdateContractOpen(true);
+    const {transactions, deleteUser, setId, filterentradas, filter} = useTransactions()
+    const [isNewUpdateModalOpen, setIsNewUpdateOpen] = useState(false);
+    const [isNewConfigModalOpen, setIsNewConfigOpen] = useState(false);
+    let id = '';
+    function handleOpenNewUpdateModal() {
+        setIsNewUpdateOpen(true);
     }
     
-    function handleCloseNewUpdateContractModal() {
-        setIsNewUpdateContractOpen(false);
+    function handleCloseNewUpdateModal() {
+        setIsNewUpdateOpen(false);
         window.location.reload();
     }
-    let id = '';
+
+    function handleOpenNewConfigModal() {
+        setIsNewConfigOpen(true);
+    }
+    
+    function handleCloseNewConfigModal() {
+        setIsNewConfigOpen(false);
+        window.location.reload();
+    }
+    
     
     return(
         <>
@@ -44,7 +55,7 @@ const Transactions = () =>{
                              
                            if(filterentradas != ''){
                                if(transaction.typetransactions === filter || transaction.categoria === filter ){
-                                console.log('transaction.typetransactions, filter',transaction.typetransactions, filter, transaction.categoria)          
+                                console.log('transaction.typetransactions, filter', filter)          
                                 return(
                                     <tr>
                                         <td key={transaction.titulo}>{transaction.titulo}</td>
@@ -62,7 +73,7 @@ const Transactions = () =>{
                                             <button 
                                                 style={{background: 'none'}}
                                                 onClick={()=>{
-                                                    handleOpenNewUpdateContractModal();
+                                                    handleOpenNewUpdateModal();
                                                     setId(transaction.id);
                                                 }}
                                             >
@@ -101,7 +112,7 @@ const Transactions = () =>{
                                         <button 
                                             style={{background: 'none'}}
                                             onClick={()=>{
-                                                handleOpenNewUpdateContractModal();
+                                                handleOpenNewUpdateModal();
                                                 setId(transaction.id);
                                             }}
                                         >
@@ -140,7 +151,20 @@ const Transactions = () =>{
                         if(transaction.typetransactions === filter || transaction.categoria === filter ){
                             return(
                                 <div>
-                                    <p>{transaction.titulo}</p>
+                                    <ul className='configUl'>
+                                        <li>
+                                            <p>{transaction.titulo}</p>
+                                        </li>
+                                        <li>
+                                            <button
+                                                onClick={()=>{
+                                                    handleOpenNewConfigModal();
+                                                    setId(transaction.id)
+                                                }}
+                                            >. . .</button>
+                                        </li>
+                                    </ul>
+                                    
                                     <strong  style={{color: cor}}> 
                                         {new Intl.NumberFormat('pt-BR',{
                                             style: 'currency',
@@ -156,7 +180,19 @@ const Transactions = () =>{
                      }else{
                         return(
                             <div>
-                                <p>{transaction.titulo}</p>
+                                <ul className='configUl'>
+                                    <li>
+                                        <p>{transaction.titulo}</p>
+                                    </li>
+                                    <li>
+                                        <button
+                                            onClick={()=>{
+                                                handleOpenNewConfigModal();
+                                                setId(transaction.id)
+                                            }}
+                                        >. . .</button>
+                                    </li>
+                                </ul>
                                 <strong  style={{color: cor}}> 
                                     {new Intl.NumberFormat('pt-BR',{
                                         style: 'currency',
@@ -173,7 +209,12 @@ const Transactions = () =>{
             </section>
             <UpadateModal
                 isOpen={isNewUpdateModalOpen} 
-                OnRequestClose={handleCloseNewUpdateContractModal}
+                OnRequestClose={handleCloseNewUpdateModal}
+                id={id}
+            />
+             <ConfigModal
+                isOpen={isNewConfigModalOpen} 
+                OnRequestClose={handleCloseNewUpdateModal}
                 id={id}
             />
         </>

@@ -34,7 +34,7 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
             placeholder='Digite a descrição'
             onChange={(event)=> {
                 setFilter(event.target.value)
-                inputeFilter();
+                //inputeFilter();
             }}
             value={filter}
         />
@@ -168,7 +168,9 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
                 <button 
                     className='buttonSalvarFiltro'
                     onClick={OnRequestClose}
-                    >Filtrar</button>
+                    >
+                        Filtrar
+                    </button>
             </>
         </ ModalFilter>
     )
