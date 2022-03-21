@@ -11,7 +11,7 @@ import tranporteImg from '../../assets/Tranporte.svg';
 import casaImg from '../../assets/Casa.svg';
 import restauranteImg from '../../assets/Restaurante.svg'
 import streamingImg from '../../assets/Streaming.svg'
-import celularImg from '../../assets/Celular.svg'
+import celularImg from '../../assets/Celular.svg';
 import './style.css'
 
 
@@ -35,7 +35,8 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
     const [cor6, setCor6] = useState('');
     const [cor7, setCor7] = useState('');
     const [cor8, setCor8] = useState('');
-
+    const[ativo, setAtivo] = useState(true);
+    const[buttonCor, setButtonCor] = useState('rgba(41, 76, 176, 0.5)');
 
     
     const transactionsCollectionRef = collection(db, "transacoes");
@@ -134,6 +135,8 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                                     setCor6('');
                                     setCor7('');
                                     setCor8('');
+                                    setAtivo(false);
+                                    setButtonCor('rgba(41, 76, 176, 1)');
                                     
                             }}
                         >
@@ -156,6 +159,8 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                                     setCor6('');
                                     setCor7('');
                                     setCor8('');
+                                    setAtivo(false);
+                                    setButtonCor('rgba(41, 76, 176, 1)');
                                     
                             }}
                         >
@@ -178,6 +183,8 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                                   setCor6('');
                                   setCor7('');
                                   setCor8('');
+                                  setAtivo(false);
+                                  setButtonCor('rgba(41, 76, 176, 1)');
                                   
                             }}
                         >
@@ -200,6 +207,8 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                                   setCor6('');
                                   setCor7('');
                                   setCor8('');
+                                  setAtivo(false);
+                                  setButtonCor('rgba(41, 76, 176, 1)');
                                  
                             }}
                         >
@@ -222,6 +231,8 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                                   setCor6('');
                                   setCor7('');
                                   setCor8('');
+                                  setAtivo(false);
+                                  setButtonCor('rgba(41, 76, 176, 1)');
                                  
                             }}
                         >
@@ -247,6 +258,8 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                                   setCor6('');
                                   setCor7('');
                                   setCor8('');
+                                  setAtivo(false);
+                                  setButtonCor('rgba(41, 76, 176, 1)');
                                   
                             }}
                         >
@@ -269,6 +282,8 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                                     setCor5('');
                                     setCor7('');
                                     setCor8('');
+                                    setAtivo(false);
+                                    setButtonCor('rgba(41, 76, 176, 1)');
                                   
                             }}
                         >
@@ -291,6 +306,8 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                                   setCor5('');
                                   setCor6('');
                                   setCor8('');
+                                  setAtivo(false);
+                                  setButtonCor('rgba(41, 76, 176, 1)');
                                  
                             }}
                         >
@@ -313,15 +330,24 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
                                   setCor5('');
                                   setCor6('');
                                   setCor7('');
+                                  setAtivo(false);
+                                  setButtonCor('rgba(41, 76, 176, 1)');
 
                             }}
-                        >
+                        > 
                             <img src={ viagemImg } alt="" />
                         </button>
                         Viagem
                     </li>
                 </ul>
-                 <button type='submit'>Cadastrar</button>
+                 <button  
+                    type='submit' 
+                    style={{background: buttonCor}}
+                    disabled={ativo} 
+                    className='buttonCadastar'
+                >
+                        Cadastrar
+                </button>
             </form>
         </Modal>
     )

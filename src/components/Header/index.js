@@ -11,6 +11,7 @@ const Header = () => {
     const [isNewTransactionModalOpen, setIsNewTransactionOpen] = useState(false);
     const [isNewFilterModalOpen, setIsNewFilterOpen] = useState(false);
     const [cor, setCor] = useState('');
+    const ativo = false;
     function handleOpenNewTransactionModal() {
         setIsNewTransactionOpen(true);
       }
@@ -34,6 +35,7 @@ const Header = () => {
                     <img src={logoImg} alt="logo" />
                     <div>
                         <button
+
                             onClick={handleOpenNewFilterModal}
                         >
                             <img className='imgNav'  src={pesquisaImg} alt="pesquisar transação" />

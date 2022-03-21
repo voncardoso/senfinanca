@@ -43,6 +43,7 @@ form button{
     width: 100%;
     margin: 0 auto;
     font-size: 1.25rem;
+
 }
 
 .Tipetransaction{
@@ -97,6 +98,10 @@ form button{
 .UlIcons li button img{
    position: relative;
    top: 3px;
+}
+
+.buttonCadastar:hover{
+    filter: none;
 }
 
 
