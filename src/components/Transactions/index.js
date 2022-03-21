@@ -8,7 +8,7 @@ import { useTransactions } from '../../hooks/UseTransactions';
 import './style.css';
 
 const Transactions = () =>{
-    const {transactions, deleteUser, setId, filterentradas, filter} = useTransactions()
+    const {transactions, deleteUser, setId, filterentradas, filter, filter1} = useTransactions()
     const [isNewUpdateModalOpen, setIsNewUpdateContractOpen] = useState(false);
 
     function handleOpenNewUpdateContractModal() {
@@ -27,7 +27,7 @@ const Transactions = () =>{
                 <table className='tableList'>
                     <thead>
                         <tr>
-                            <th>Titulo</th>
+                            <th>Descrição</th>
                             <th>Valor</th>
                             <th>Categoria</th>
                             <th>Data</th>
@@ -43,7 +43,7 @@ const Transactions = () =>{
                              }                 
                              
                            if(filterentradas != ''){
-                               if(transaction.typetransactions === filter || transaction.categoria === filter){
+                               if(transaction.typetransactions === filter || transaction.categoria === filter ){
                                 console.log('transaction.typetransactions, filter',transaction.typetransactions, filter, transaction.categoria)          
                                 return(
                                     <tr>

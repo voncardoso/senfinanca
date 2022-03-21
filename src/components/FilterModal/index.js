@@ -16,7 +16,8 @@ import './style.css'
 
 
 const FilterModal = ({isOpen,OnRequestClose}) => {
-    const {setFilter} = useTransactions();
+    const {setFilter, filter, inputeFilter} = useTransactions();
+    console.log('filter input', filter);
     
     return(
         <ModalFilter
@@ -30,14 +31,18 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
         <input 
             className='inputFilter' 
             type="text" 
-            placeholder='Digite o que estar buscando'
-            onChange={(event)=> setFilter(event.target.value)}
+            placeholder='Digite a descrição'
+            onChange={(event)=> {
+                setFilter(event.target.value)
+                inputeFilter();
+            }}
+            value={filter}
         />
             <ul className='UlIconsFilter'>
                     <li>
                         <button 
                             onClick={()=>{
-                                setFilter('');
+                                setFilter(' ');
                             }}
                         >
                             <img src={ todosImg } alt="" />

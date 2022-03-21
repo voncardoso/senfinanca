@@ -13,6 +13,7 @@ export function TransactionProvaider({children}){
     const [categoria, setCategoria] = useState('');
     const [filter, setFilter] = useState('');
     const [id ,setId] = useState('');
+    let filter1 = '';
 
     useEffect(() => {
         const getTransactions = async () => {
@@ -22,6 +23,7 @@ export function TransactionProvaider({children}){
         getTransactions();
       }, []);
 
+      // função para detelar
       const deleteUser = async (id) => {
         const userDoc = doc(db, "transacoes", id);
         await deleteDoc(userDoc);
@@ -30,6 +32,7 @@ export function TransactionProvaider({children}){
        window.location.reload();
     };
 
+    // função para editar
     async function upadteTransactions(event){
       event.preventDefault();
       const userDoc = doc(db, "transacoes", id);
@@ -60,6 +63,22 @@ export function TransactionProvaider({children}){
       //handleOpenNewUpdateUserSucessModal();
   }
 
+  // função de filtros 
+  function inputeFilter(){
+    
+    transactions.map((transaction)=>{
+      
+      let total = transaction.categoria.indexOf(filter)
+      console.log('filter1', total )
+      if(total >= 0){
+        console.log('passou')
+        filter1 = transaction.categoria
+      }
+    })
+    console.log('filter1', filter1)
+  }
+
+  inputeFilter();
   const filterentradas = transactions.filter((transaction) =>{
     console.log(transaction);
     return transaction.typetransactions == filter || transaction.categoria == filter;
@@ -85,7 +104,9 @@ export function TransactionProvaider({children}){
           setId,
           filter, 
           setFilter,
-          filterentradas
+          filterentradas,
+          inputeFilter,
+          filter1
           }}>
             {children}
         </TransactionContext.Provider>
