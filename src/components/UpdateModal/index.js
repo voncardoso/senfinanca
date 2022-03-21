@@ -2,6 +2,14 @@ import {useContext, useState} from 'react';
 import  UpdareModal  from "react-modal";
 import { useTransactions } from '../../hooks/UseTransactions';
 import closeImg from '../../assets/close.svg';
+import viagemImg from '../../assets/Viagem.svg';
+import saudeImg from '../../assets/Saude.svg';
+import supermercadoImg from '../../assets/Supermercado.svg';
+import tranporteImg from '../../assets/Tranporte.svg';
+import casaImg from '../../assets/Casa.svg';
+import restauranteImg from '../../assets/Restaurante.svg'
+import streamingImg from '../../assets/Streaming.svg'
+import celularImg from '../../assets/Celular.svg';
 import './style.css'
 
 
@@ -9,6 +17,17 @@ import './style.css'
 const UpdateModal = ({isOpen,OnRequestClose}) => {
     const [entradaColor, setEntradaColor] = useState('');
     const [saidaColor, setSaidaColor] = useState('');
+    const [cor, setCor] = useState('');
+    const [cor1, setCor1] = useState('');
+    const [cor2, setCor2] = useState('');
+    const [cor3, setCor3] = useState('');
+    const [cor4, setCor4] = useState('');
+    const [cor5, setCor5] = useState('');
+    const [cor6, setCor6] = useState('');
+    const [cor7, setCor7] = useState('');
+    const [cor8, setCor8] = useState('');
+    const[buttonCor, setButtonCor] = useState('rgba(41, 76, 176, 0.5)');
+    const[ativo, setAtivo] = useState(true);
 
     const {upadteTransactions,
         setTypetransactions,
@@ -74,12 +93,231 @@ const UpdateModal = ({isOpen,OnRequestClose}) => {
                 value={valor}
                 onChange={(event)=> setValor(event.target.value)}                   
             />
-            <input type="text" 
-            placeholder='Categoria'
-            value={categoria}
-            onChange={(event)=> setCategoria(event.target.value)}                
-            />
-             <button type='submit'>Cadastrar</button>
+            <p className='categoriasP'>Categorias</p>
+             <ul className='UlIcons'>
+
+                <li>
+                    <button
+                        style={{filter: cor}}
+                        type='button'
+                        onClick={()=>{
+                                setCategoria('Saúde');
+                                setCor('brightness(0.7)');
+                                setCor1('');
+                                setCor2('');
+                                setCor3('');
+                                setCor4('');
+                                setCor5('');
+                                setCor6('');
+                                setCor7('');
+                                setCor8('');
+                                setAtivo(false);
+                                setButtonCor('rgba(41, 76, 176, 1)');
+                                
+                        }}
+                    >
+                        <img src={ saudeImg  } alt="" />
+                    </button>
+                    Saúde
+                </li>
+                <li>
+                    <button
+                        style={{filter: cor1}}
+                        type='button'
+                        onClick={()=>{
+                                setCategoria('Supermecado');
+                                setCor1('brightness(0.7)');
+                                setCor('');
+                                setCor2('');
+                                setCor3('');
+                                setCor4('');
+                                setCor5('');
+                                setCor6('');
+                                setCor7('');
+                                setCor8('');
+                                setAtivo(false);
+                                setButtonCor('rgba(41, 76, 176, 1)');
+                                
+                        }}
+                    >
+                        <img src={ supermercadoImg } alt="" />
+                    </button>
+                    Supermecado
+                </li>
+                <li>
+                    <button
+                        style={{filter: cor2}}
+                        type='button'
+                        onClick={()=>{
+                            setCategoria('Transporte');
+                            setCor2('brightness(0.7)');
+                            setCor('');
+                            setCor1('');
+                            setCor3('');
+                            setCor4('');
+                            setCor5('');
+                            setCor6('');
+                            setCor7('');
+                            setCor8('');
+                            setAtivo(false);
+                            setButtonCor('rgba(41, 76, 176, 1)');
+                            
+                        }}
+                    >
+                        <img src={ tranporteImg } alt="" />
+                    </button>
+                    Transporte
+                </li>
+                <li>
+                    <button
+                        style={{filter: cor3}}
+                        type='button'
+                        onClick={()=>{
+                            setCategoria('Casa');
+                            setCor3('brightness(0.7)');
+                            setCor('');
+                            setCor1('');
+                            setCor2('');
+                            setCor4('');
+                            setCor5('');
+                            setCor6('');
+                            setCor7('');
+                            setCor8('');
+                            setAtivo(false);
+                            setButtonCor('rgba(41, 76, 176, 1)');
+                            
+                        }}
+                    >
+                        <img src={ casaImg } alt="" />
+                    </button>
+                    Casa
+                </li>
+                <li>
+                    <button
+                        style={{filter: cor4}}
+                        type='button'
+                        onClick={()=>{
+                            setCategoria('Vendas');
+                            setCor4('brightness(0.7)');
+                            setCor('');
+                            setCor1('');
+                            setCor2('');
+                            setCor3('');
+                            setCor5('');
+                            setCor6('');
+                            setCor7('');
+                            setCor8('');
+                            setAtivo(false);
+                            setButtonCor('rgba(41, 76, 176, 1)');
+                            
+                        }}
+                    >
+                        <p 
+                            style={{
+                                fontSize:"1.5rem", 
+                                color: '#FFFFFF',  
+                            }}>$</p>
+                    </button>
+                    Vendas
+                </li>
+                <li>
+                    <button
+                        style={{filter: cor5}}
+                        onClick={()=>{
+                            setCategoria('Streaming/Jogos');
+                            setCor5('brightness(0.7)');
+                            setCor('');
+                            setCor1('');
+                            setCor2('');
+                            setCor3('');
+                            setCor4('');
+                            setCor6('');
+                            setCor7('');
+                            setCor8('');
+                            setAtivo(false);
+                            setButtonCor('rgba(41, 76, 176, 1)');
+                            
+                        }}
+                    >
+                        <img src={ streamingImg } alt="" />
+                    </button>
+                    Streaming/Jogos
+                </li>
+                <li>
+                    <button
+                        style={{filter: cor6}}
+                        type='button'
+                        onClick={()=>{
+                                setCategoria('Celular');
+                                setCor6('brightness(0.7)');
+                                setCor('');
+                                setCor1('');
+                                setCor2('');
+                                setCor3('');
+                                setCor4('');
+                                setCor5('');
+                                setCor7('');
+                                setCor8('');
+                                setAtivo(false);
+                                setButtonCor('rgba(41, 76, 176, 1)');
+                            
+                        }}
+                    >
+                        <img src={ celularImg } alt="" />
+                    </button>
+                    Celular
+                </li>
+                <li>
+                    <button 
+                        style={{filter: cor7}}
+                        type='button'
+                        onClick={()=>{
+                            setCategoria('Restaurantes');
+                            setCor7('brightness(0.7)');
+                            setCor('');
+                            setCor1('');
+                            setCor2('');
+                            setCor3('');
+                            setCor4('');
+                            setCor5('');
+                            setCor6('');
+                            setCor8('');
+                            setAtivo(false);
+                            setButtonCor('rgba(41, 76, 176, 1)');
+                            
+                        }}
+                    >
+                        <img src={ restauranteImg } alt="" />
+                    </button>
+                    Restaurantes
+                </li>
+                <li>
+                    <button 
+                        style={{filter: cor8}}
+                        type='button'
+                        onClick={()=>{
+                            setCategoria('Viagem');
+                            setCor8('brightness(0.7)');
+                            setCor('');
+                            setCor1('');
+                            setCor2('');
+                            setCor3('');
+                            setCor4('');
+                            setCor5('');
+                            setCor6('');
+                            setCor7('');
+                            setAtivo(false);
+                            setButtonCor('rgba(41, 76, 176, 1)');
+
+                        }}
+                    > 
+                        <img src={ viagemImg } alt="" />
+                    </button>
+                    Viagem
+                </li>
+        </ul>
+
+            <button type='submit'>Cadastrar</button>
         </form>
     </ UpdareModal>
     );

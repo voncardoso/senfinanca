@@ -63,7 +63,6 @@ const ConfigModal = ({isOpen,OnRequestClose}) =>{
                         setTitulo(titulo)
                         setValor(valor)
                         teste()
-                        console.log('teste',titulo, valor)
                     }}
                 >
                 <button 

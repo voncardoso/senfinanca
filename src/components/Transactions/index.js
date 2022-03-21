@@ -17,9 +17,7 @@ const Transactions = () =>{
         filter, 
         setTitulo, 
         setValor,
-        setCategoria,
-        valor,
-        titulo
+        setTypetransactions
     } = useTransactions()
     const [isNewUpdateModalOpen, setIsNewUpdateOpen] = useState(false);
     const [isNewConfigModalOpen, setIsNewConfigOpen] = useState(false);
@@ -88,6 +86,7 @@ const Transactions = () =>{
                                                     setId(transaction.id);
                                                     setTitulo(transaction.titulo)
                                                     setValor(transaction.valor)
+                                                    setTypetransactions(transaction.typetransactions);
                                                 }}
                                             >
                                                 <img src={UpdateImg} alt="Icone de Update" />
@@ -130,6 +129,7 @@ const Transactions = () =>{
                                                 setId(transaction.id);
                                                 setTitulo(transaction.titulo)
                                                 setValor(transaction.valor)
+                                                
                                             }}
                                         >
                                             <img src={UpdateImg} alt="Icone de Update" />
