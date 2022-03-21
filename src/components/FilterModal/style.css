@@ -65,4 +65,34 @@ h2{
         padding: 3rem;
         position: relative;
         border-radius: 20px;
+}
+
+@media(max-width: 597px){
+    .UlIconsFilter{
+        grid-template-columns: 1fr 1fr 1fr ;
     }
+
+    .react-modal-content-filter{
+        max-width: 476px;
+        height: 640px;
+        width: 100%;
+    }
+}
+
+@media(max-width: 498px) {
+    .react-modal-content-filter{
+        max-width: 380px;
+        height: 610px;
+        width: 100%;
+        padding: 1.5rem 0rem;
+        position: relative;
+        overflow-y: scroll;
+    }
+
+    .inputFilter, .buttonSalvarFiltro{ 
+        max-width: 90%;
+        margin-left: 20px;
+       
+    }
+
+}

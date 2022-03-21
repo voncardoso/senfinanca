@@ -137,7 +137,7 @@ const Transactions = () =>{
                         cor = '#F14F34'
                     }
                      if(filterentradas != ''){
-                        if(transaction.typetransactions === filter){
+                        if(transaction.typetransactions === filter || transaction.categoria === filter ){
                             return(
                                 <div>
                                     <p>{transaction.titulo}</p>
