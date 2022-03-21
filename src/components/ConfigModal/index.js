@@ -3,6 +3,7 @@ import  ModalConfig  from "react-modal";
 import { useTransactions } from '../../hooks/UseTransactions';
 import DeleteImg from '../../assets/IconDelete.svg';
 import UpdateImg from '../../assets/iconUpdate.svg'
+import closeImg from '../../assets/close.svg';
 import './style.css'
 import UpdateModal from '../UpdateModal';
 
@@ -28,6 +29,13 @@ const ConfigModal = ({isOpen,OnRequestClose}) =>{
             overlayClassName="react-modal-overlay-config"
             className="react-modal-content-config"
         >
+            <button 
+                onClick={OnRequestClose} 
+                className="config-React"
+            >
+                <img src={closeImg} alt="fechar modal" />
+            </button>
+
             <ul className='ConfigModal' >
                 <li
                     onClick={()=>{

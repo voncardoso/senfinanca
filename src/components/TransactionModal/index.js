@@ -5,6 +5,7 @@ import {db} from '../../firebase/config';
 import  Modal  from "react-modal";
 import viagemImg from '../../assets/Viagem.svg';
 import saudeImg from '../../assets/Saude.svg';
+import closeImg from '../../assets/close.svg';
 import supermercadoImg from '../../assets/Supermercado.svg';
 import tranporteImg from '../../assets/Tranporte.svg';
 import casaImg from '../../assets/Casa.svg';
@@ -34,7 +35,7 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
     const [cor6, setCor6] = useState('');
     const [cor7, setCor7] = useState('');
     const [cor8, setCor8] = useState('');
-    const [cor9, setCor9] = useState('');
+
 
     
     const transactionsCollectionRef = collection(db, "transacoes");
@@ -68,6 +69,12 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
             overlayClassName="react-modal-overlay"
             className="react-modal-content"
         >
+         <button 
+            onClick={OnRequestClose} 
+            className="rect-modal-close"
+          >
+            <img src={closeImg} alt="fechar modal" />
+          </button>
             <form onSubmit={Create}>
                 <h2>Cadastrar Finanças</h2>
                 <div className='Tipetransaction'>

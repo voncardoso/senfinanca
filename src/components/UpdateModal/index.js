@@ -1,6 +1,7 @@
 import {useContext, useState} from 'react';
 import  UpdareModal  from "react-modal";
 import { useTransactions } from '../../hooks/UseTransactions';
+import closeImg from '../../assets/close.svg';
 import './style.css'
 
 
@@ -28,6 +29,12 @@ const UpdateModal = ({isOpen,OnRequestClose}) => {
         overlayClassName="react-modal-overlay"
         className="react-modal-content"
     >
+        <button 
+            onClick={OnRequestClose} 
+            className="rect-modal-close"
+          >
+            <img src={closeImg} alt="fechar modal" />
+        </button>
         <form onSubmit={upadteTransactions}>
             <h2>Atualizar Finanças</h2>
             <div className='Tipetransaction'>

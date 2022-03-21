@@ -12,6 +12,7 @@ import casaImg from '../../assets/Casa.svg';
 import restauranteImg from '../../assets/Restaurante.svg'
 import streamingImg from '../../assets/Streaming.svg'
 import celularImg from '../../assets/Celular.svg'
+import closeImg from '../../assets/close.svg';
 import './style.css'
 
 
@@ -39,6 +40,12 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
             className="react-modal-content-filter"
         >
         <>
+        <button 
+            onClick={OnRequestClose} 
+            className="rect-modal-close"
+          >
+            <img src={closeImg} alt="fechar modal" />
+        </button>
         <h2>Filtros</h2>
         {
             /**        <input 
