@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
-import { collection, getDocs, deleteDoc, doc, updateDoc} from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc, updateDoc, query, orderBy} from "firebase/firestore";
 import {db} from "../firebase/config"
 
 const TransactionContext = createContext({});
@@ -14,6 +14,7 @@ export function TransactionProvaider({children}){
     const [filter, setFilter] = useState('');
     const [filterInput, setFilterInput] = useState('');
     const [id ,setId] = useState('');
+    const q = query(usersTransactions , orderBy('time', 'desc'));
     
     let filter1 = '';
 

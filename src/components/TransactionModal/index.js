@@ -51,6 +51,7 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
             categoria: categoria,
             typetransactions: typetransactions,
             timestemp: new Date().toLocaleDateString(),
+            time: new Date().getTime(),
         });
         setTitulo('');
         setValor('');
