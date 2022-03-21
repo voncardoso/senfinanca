@@ -15,7 +15,7 @@ export function TransactionProvaider({children}){
     const [filterInput, setFilterInput] = useState('');
     const [id ,setId] = useState('');
     const q = query(usersTransactions , orderBy('time', 'desc'));
-    
+    const [subCategoria, setSubCategoria] = useState('none');
     let filter1 = '';
 
     useEffect(() => {
@@ -67,15 +67,8 @@ export function TransactionProvaider({children}){
   }
 
   // função de filtros 
-  function inputeFilter(){
-   
-  
-   
+  function inputeFilter(){ 
   }
-
-
-
- 
 
   //inputeFilter();
   const filterentradas = transactions.filter((transaction) =>{
@@ -107,7 +100,9 @@ export function TransactionProvaider({children}){
           filterInput, 
           setFilterInput,
           inputeFilter,
-          filter1
+          filter1,
+          subCategoria, 
+          setSubCategoria
           }}>
             {children}
         </TransactionContext.Provider>

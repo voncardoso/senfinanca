@@ -17,7 +17,7 @@ import './style.css'
 
 
 const FilterModal = ({isOpen,OnRequestClose}) => {
-    const {setFilter, filter, setFilterInput, filterInput, transactions} = useTransactions();
+    const {setFilter, setSubCategoria} = useTransactions();
     const [cor, setCor] = useState('');
     const [cor1, setCor1] = useState('');
     const [cor2, setCor2] = useState('');
@@ -77,7 +77,7 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
                                 setCor9('');
                                 setCor10('');
                                 setCor11('');
-
+                                setSubCategoria('none')
                             }}
                         >
                             <img src={ todosImg } alt="" />
@@ -101,6 +101,7 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
                                 setCor9('');
                                 setCor10('');
                                 setCor11('');
+                                setSubCategoria('grid')
                             }}
                         >
                             <img src={ entradaImg } alt="" />
@@ -124,6 +125,7 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
                                 setCor9('');
                                 setCor10('');
                                 setCor11('');
+                                setSubCategoria('grid')
                             }}    
                         >
                             <img src={ saidaImg } alt="" />
@@ -147,6 +149,7 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
                                 setCor9('');
                                 setCor10('');
                                 setCor11('');
+                                setSubCategoria('grid');
                             }}
                         >
                             <img src={ saudeImg  } alt="" />
@@ -170,6 +173,7 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
                                 setCor9('');
                                 setCor10('');
                                 setCor11('');
+                                setSubCategoria('grid')
                             }}
                         >
                             <img src={ supermercadoImg } alt="" />
@@ -193,6 +197,7 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
                                 setCor9('');
                                 setCor10('');
                                 setCor11('');
+                                setSubCategoria('grid')
                             }}
                         >
                             <img src={ tranporteImg } alt="" />
@@ -216,6 +221,7 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
                                 setCor9('');
                                 setCor10('');
                                 setCor11('');
+                                setSubCategoria('grid')
                             }}
                         >
                             <img src={ casaImg } alt="" />
@@ -239,6 +245,7 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
                                 setCor9('');
                                 setCor10('');
                                 setCor11('');
+                                setSubCategoria('grid')
                             }}
                         >
                             <p 
@@ -266,6 +273,7 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
                                 setCor9('');
                                 setCor10('');
                                 setCor11('');
+                                setSubCategoria('grid')
                             }}
                         >
                             <img src={ streamingImg } alt="" />
@@ -289,6 +297,7 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
                                 setCor8('');
                                 setCor10('');
                                 setCor11('');
+                                setSubCategoria('grid')
                             }}
                         >
                             <img src={ celularImg } alt="" />
@@ -312,6 +321,7 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
                                 setCor8('');
                                 setCor9('');
                                 setCor11('');
+                                setSubCategoria('grid')
                             }}
                         >
                             <img src={ restauranteImg } alt="" />
@@ -335,6 +345,7 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
                                 setCor8('');
                                 setCor9('');
                                 setCor10('');
+                                setSubCategoria('grid')
                             }}
                         >
                             <img src={ viagemImg } alt="" />
@@ -359,6 +370,7 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
                             setCor9('');
                             setCor10('');
                             setCor11('');
+                            setSubCategoria('grid')
                         }}
                     >
                         Filtrar
