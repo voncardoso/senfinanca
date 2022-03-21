@@ -54,7 +54,7 @@ const Transactions = () =>{
                              }                 
                              
                            if(filterentradas != ''){
-                               if(transaction.typetransactions === filter || transaction.categoria === filter ){
+                               if(transaction.typetransactions === filter || transaction.categoria === filter){
                                 console.log('transaction.typetransactions, filter', filter)          
                                 return(
                                     <tr>

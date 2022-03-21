@@ -134,7 +134,7 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
                         <button
                             style={{filter: cor3}}
                             onClick={()=>{
-                                setFilter('Saude');
+                                setFilter('Saúde');
                                 setCor3('brightness(0.7)');
                                 setCor('');
                                 setCor1('');
