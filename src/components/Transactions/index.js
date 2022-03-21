@@ -18,7 +18,7 @@ const Transactions = () =>{
         setTitulo, 
         setValor,
         setTypetransactions
-    } = useTransactions()
+    } = useTransactions();
     const [isNewUpdateModalOpen, setIsNewUpdateOpen] = useState(false);
     const [isNewConfigModalOpen, setIsNewConfigOpen] = useState(false);
     let id = '';
