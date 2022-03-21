@@ -101,7 +101,7 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
                                 setCor9('');
                                 setCor10('');
                                 setCor11('');
-                                setSubCategoria('grid')
+                                setSubCategoria('none')
                             }}
                         >
                             <img src={ entradaImg } alt="" />
@@ -125,7 +125,7 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
                                 setCor9('');
                                 setCor10('');
                                 setCor11('');
-                                setSubCategoria('grid')
+                                setSubCategoria('none')
                             }}    
                         >
                             <img src={ saidaImg } alt="" />
