@@ -20,7 +20,7 @@ export function TransactionProvaider({children}){
 
     useEffect(() => {
         const getTransactions = async () => {
-          const data = await getDocs(usersTransactions);
+          const data = await getDocs(q);
           setTransactions(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         };
         getTransactions();
