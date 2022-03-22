@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import UpadateModal from '../../components/UpdateModal';
 import UpdateImg from '../../assets/iconUpdate.svg';
 import DeleteImg from '../../assets/IconDelete.svg';
+import PontinhosImg from '../../assets/pontinhos.svg';
 import { useTransactions } from '../../hooks/UseTransactions';
 import './style.css';
 import ConfigModal from '../ConfigModal';
@@ -209,7 +210,9 @@ const Transactions = () =>{
                                                 handleOpenNewConfigModal();
                                                 setId(transaction.id)
                                             }}
-                                        >. . .</button>
+                                        >
+                                            <img src={PontinhosImg} alt="" />
+                                        </button>
                                     </li>
                                 </ul>
                                 <strong  style={{color: cor}}> 
