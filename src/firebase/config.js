@@ -6,23 +6,21 @@ import "firebase/compat/firestore";
 import { collection, addDoc, getDocs, updateDoc, doc} from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCuxqyrnZCVSQ1wBR9maOTgpmHiK37DXn8",
-    authDomain: "senfinance9646e.firebaseapp.com",
-    projectId: "senfinance9646e",
-    storageBucket: "senfinance9646e.appspot.com",
-    messagingSenderId: "626462741821",
-    appId: "1:626462741821:web:8ad9df23be0c6eca12a154"
+    apiKey: process.env.REACT_APP_FIREBASE_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
+    databaseURL: process.env.REACT_APP_FIREBASE_DATABASE,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
 };
 
 firebase.initializeApp(firebaseConfig);
 
-const storage = firebase.storage();
-const auth = firebase.auth();
 const db = getFirestore();
-const db1 = getFirestore();
+
 
   
-export {firebase, auth, db, firebaseConfig, storage, db1};
+export { db };
 
 
 

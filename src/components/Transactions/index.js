@@ -19,9 +19,12 @@ const Transactions = () =>{
         setValor,
         setTypetransactions
     } = useTransactions();
+
     const [isNewUpdateModalOpen, setIsNewUpdateOpen] = useState(false);
     const [isNewConfigModalOpen, setIsNewConfigOpen] = useState(false);
     let id = '';
+
+    // funções para abrir o modal
     function handleOpenNewUpdateModal() {
         setIsNewUpdateOpen(true);
     }

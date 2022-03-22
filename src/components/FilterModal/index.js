@@ -17,7 +17,7 @@ import './style.css'
 
 
 const FilterModal = ({isOpen,OnRequestClose}) => {
-    const {setFilter, setSubCategoria} = useTransactions();
+    const {setFilter, setSubCategoria, subCategoria} = useTransactions();
     const [cor, setCor] = useState('');
     const [cor1, setCor1] = useState('');
     const [cor2, setCor2] = useState('');
@@ -47,18 +47,6 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
             <img src={closeImg} alt="fechar modal" />
         </button>
         <h2>Filtros</h2>
-        {
-            /**        <input 
-            className='inputFilter' 
-            type='search'
-            id='pesquisa'
-            placeholder='Digite a descrição'
-            onChange={(event)=> {
-                setFilterInput(event.target.value)
-            }}
-            value={filterInput}
-        /> */
-        }
             <ul className='UlIconsFilter'>
                     <li>
                         <button 
@@ -370,7 +358,7 @@ const FilterModal = ({isOpen,OnRequestClose}) => {
                             setCor9('');
                             setCor10('');
                             setCor11('');
-                            setSubCategoria('grid')
+                            setSubCategoria(subCategoria)
                         }}
                     >
                         Filtrar

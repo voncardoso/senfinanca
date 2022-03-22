@@ -5,7 +5,8 @@ import './style.css'
 const Summary = () => {
 
     const {transactions, filter, subCategoria} = useTransactions();
-    console.log('filter teste', filter)
+
+    // função da soma de entradas e saidas por categoria
     const values = transactions.reduce((acc, transaction) =>{
         let valor = +transaction.valor
         if(transaction.typetransactions == 'Entrada' ){
@@ -25,6 +26,7 @@ const Summary = () => {
     }
     );
 
+    // função da soma de entradas e saidas por categoria
     const valuesCategorias = transactions.reduce((acc, transaction) =>{
         let valor = +transaction.valor
         if( transaction.categoria == filter && transaction.typetransactions == 'Entrada'){
@@ -43,12 +45,7 @@ const Summary = () => {
         total: 0,
     }
     );
-    console.log('teste flter',filter);
-    console.log(valuesCategorias)
-    
-
-
-
+    {/**  Resumo de valores por totais  */}
     return(
         <>
          <section className='summary'>
@@ -88,6 +85,7 @@ const Summary = () => {
             </div>
         </section>
 
+        {/** Resumo de valores por categoria  */}
         <section 
             className='summary'
             style={{marginTop: '20px', display: subCategoria}}

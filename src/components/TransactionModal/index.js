@@ -41,7 +41,7 @@ const TransactionModal = ({isOpen,OnRequestClose}) =>{
     
     const transactionsCollectionRef = collection(db, "transacoes");
 
-
+    // função de criar transação
     async function Create(event){
         event.preventDefault();
         console.log('passou');

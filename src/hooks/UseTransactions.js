@@ -70,7 +70,7 @@ export function TransactionProvaider({children}){
   function inputeFilter(){ 
   }
 
-  //inputeFilter();
+  // função de filtros
   const filterentradas = transactions.filter((transaction) =>{
     console.log(transaction);
     return transaction.typetransactions == filter || transaction.categoria == filter;
