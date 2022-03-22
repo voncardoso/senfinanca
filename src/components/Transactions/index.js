@@ -181,7 +181,9 @@ const Transactions = () =>{
                                                     handleOpenNewConfigModal();
                                                     setId(transaction.id)
                                                 }}
-                                            >. . .</button>
+                                            >
+                                                <img src={PontinhosImg} alt="" />
+                                            </button>
                                         </li>
                                     </ul>
                                     
