@@ -76,7 +76,7 @@ const ConfigModal = ({isOpen,OnRequestClose}) =>{
                 >
                     <img src={UpdateImg} alt="Icone de delete" />
                 </button>                   
-                    <p>Update</p>
+                    <p>Atualizar</p>
                 </li>
                 <li  
                     onClick={()=>{
